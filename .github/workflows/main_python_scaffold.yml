@@ -4,7 +4,7 @@ jobs:
   build:    
     runs-on: ubuntu-latest
     env:
-      working-directory: ./course1/2/
+      working-directory: ./course1/2
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
