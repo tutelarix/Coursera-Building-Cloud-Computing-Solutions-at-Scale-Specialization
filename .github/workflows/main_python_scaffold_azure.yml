@@ -1,0 +1,29 @@
+name: Python application test with Github Actions
+on: [push]
+jobs:
+  build:    
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./course1/2
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install depedencies
+      run: |
+        make install-azure
+      working-directory: ${{env.working-directory}}
+    - name: Lint with Pylint
+      run: |
+        make lint
+      working-directory: ${{env.working-directory}}
+    - name: Test with Pytest
+      run: |
+        make test
+      working-directory: ${{env.working-directory}}
+    - name: Format code with Python black
+      run: |
+        make format
+      working-directory: ${{env.working-directory}}
