@@ -1,4 +1,4 @@
-name: Python application test with Github Actions
+name: Course1/Python application test for Cloud9
 on: [push]
 jobs:
   build:    
